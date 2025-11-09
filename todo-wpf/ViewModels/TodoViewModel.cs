@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace todo_wpf.ModelViews
 {
-    internal class Class1
+    internal class TodoViewModel
     {
     }
 }

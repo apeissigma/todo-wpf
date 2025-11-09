@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace todo_wpf.Models
 {
-    internal class Class1
+    public interface IDueDate
     {
+        DateTime dueDate { get; }
+        bool isOverdue { get; }
+
+        bool checkIfOverdue(); 
     }
 }
