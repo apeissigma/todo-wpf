@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace todo_wpf.Models
 {
-    public class App
+    public class TodoApp
     {
-        public List<TodoTask> Tasks;
+        public List<TodoTask> tasks;
 
-        public App()
+        public TodoApp()
         {
-            Tasks = new List<TodoTask>();
+            tasks = new List<TodoTask>();
         }
 
+        /*
         public void ViewTasks()
         {
             foreach (TodoTask task in Tasks)
@@ -22,5 +23,6 @@ namespace todo_wpf.Models
                 task.DisplayTask(); 
             }
         }
+        */
     }
 }

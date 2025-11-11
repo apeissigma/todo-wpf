@@ -22,25 +22,33 @@ namespace todo_wpf.Models
 
         public Account assignee { get; set; }
 
+        //default constructor
+        public TodoTask() 
+        {
+            this.taskName = "test";
+            this.dueDate = (DateTime.Now.Date).AddDays(7);
+            this.isComplete = false;
+            this.isAssigned = false;
+        }
 
         public TodoTask(string tName)
         {
             this.taskName = tName;
-            this.dueDate = (DateTime.Now).AddDays(7);
+            this.dueDate = (DateTime.Now.Date).AddDays(7);
             this.isComplete = false;
             this.isAssigned = false; 
         }
         public TodoTask(string tName, int daysUntilDue)
         {
             this.taskName = tName;
-            this.dueDate = (DateTime.Now).AddDays(daysUntilDue); 
+            this.dueDate = (DateTime.Now.Date).AddDays(daysUntilDue); 
             this.isComplete = false;
             this.isAssigned = false;
         }
         public TodoTask(string tName, Account account)
         {
             this.taskName = tName;
-            this.dueDate = (DateTime.Now).AddDays(7); 
+            this.dueDate = (DateTime.Now.Date).AddDays(7); 
             this.isComplete = false;
             this.isAssigned = true;
             this.assignee = account;
@@ -48,7 +56,7 @@ namespace todo_wpf.Models
         public TodoTask(string tName, int daysUntilDue, Account account)
         {
             this.taskName = tName;
-            this.dueDate = (DateTime.Now).AddDays(daysUntilDue);
+            this.dueDate = (DateTime.Now.Date).AddDays(daysUntilDue);
             this.isComplete = false;
             this.isAssigned = true;
             this.assignee = account;
@@ -87,11 +95,12 @@ namespace todo_wpf.Models
         }
 
 
-
+ 
         public string DisplayTask()
         {
             StringBuilder sb = new StringBuilder();
 
+            /*
             sb.Append("-------------------------\n");
             sb.Append($"{this.taskName}\n");
             sb.Append("-------------------------\n");
@@ -103,6 +112,23 @@ namespace todo_wpf.Models
             if (this.isOverdue) sb.Append("(Overdue)");
 
             if (this.isAssigned) sb.Append($"Assigned to: {this.assignee.FirstName} {this.assignee.LastName}");
+            */
+
+            if (this == null)
+            {
+                return "no task found";
+            }
+
+            if (this.taskName != null) { sb.Append(this.taskName + "\n"); }
+                else sb.Append("null");
+
+            sb.Append("Due Date: ");
+            if (this.dueDate != null) { sb.Append(this.dueDate.Date + "\n"); }
+                else sb.Append("null");
+
+            sb.Append("Assigned to: ");
+            if (this.assignee != null) { sb.Append(this.assignee.FirstName + " " + this.assignee.LastName); }
+                else sb.Append("null");
 
             return sb.ToString();
         }

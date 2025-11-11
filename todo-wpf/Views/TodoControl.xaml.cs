@@ -12,17 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using todo_wpf.Models;
+using todo_wpf.ViewModels;
 
 namespace todo_wpf.Views
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for TodoControl.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class TodoControl : UserControl
     {
-        public Page1()
+        TodoTask task;
+
+        public TodoControl()
         {
             InitializeComponent();
+            task = new TodoTask();
+            this.DataContext = new TodoViewModel(task);
+        }
+
+        private void CreateTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -3,10 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:todo_wpf"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
+        xmlns:local="clr-namespace:todo_wpf"
+        xmlns:view="clr-namespace:todo_wpf.Views"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="300"
+        
+        DataContext="todo-wpf.ViewModels.TodoViewModel">
+    
+    <Grid>
+        <StackPanel>
+            <view:TodoControl x:Name="todoControl" Height="434"/>
+        </StackPanel>
     </Grid>
 </Window>
